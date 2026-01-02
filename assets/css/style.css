@@ -14,7 +14,8 @@
     --bg-card: #1e293b;
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
-    --accent: #2dd4bf;
+    --accent: #2dd4bf;           /* 가장 강조색 - 섹션 제목, 내 이름 */
+    --accent-soft: #a5f0e8;      /* 세미 강조색 - 링크, 학회명 (더 연하게) */
     --accent-dim: #14b8a6;
     --border: #334155;
 }
@@ -88,7 +89,7 @@ body {
 }
 
 a {
-    color: var(--accent);
+    color: var(--accent-soft);
     text-decoration: none;
     transition: opacity 0.2s;
 }
@@ -256,10 +257,13 @@ h2 {
 
 /* ===== Publications ===== */
 .pub-category {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin: 1.5rem 0 0.75rem;
-    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 2rem 0 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
 }
 
 .pub-item {
@@ -289,7 +293,7 @@ h2 {
 
 .pub-venue {
     font-size: 0.85rem;
-    color: var(--accent-dim);
+    color: var(--accent-soft);
     font-style: italic;
 }
 
