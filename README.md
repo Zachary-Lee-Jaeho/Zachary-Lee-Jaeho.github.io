@@ -1,23 +1,45 @@
-# Jaeho Lee - CV Website
+# Jaeho Lee - Modular CV Website
 
-순수 HTML과 CSS로 작성된 정적 CV 웹사이트입니다. 복잡한 빌드 과정이나 Node.js가 필요 없습니다.
+A static, data-driven CV website built with modular HTML, CSS, and Vanilla JavaScript.
 
-## 파일 구조
+## 📂 Directory Structure
 
-- `index.html`: 웹사이트의 메인 내용이 담겨 있습니다. (CV 내용 수정 시 이 파일을 편집하세요)
-- `style.css`: 웹사이트의 디자인(스타일)이 정의되어 있습니다.
-- `My_CV.txt`: 원본 CV 데이터 (참고용)
+The project follows a deeply modular architecture to separate concerns and ensure maintainability.
 
-## 실행 방법
+- **`assets/`**: Contains static resources like images and fonts.
+- **`css/`**: Contains stylesheets (e.g., `style.css`).
+- **`js/`**: Core JavaScript logic and data, structured by domain.
+    - **`common/`**: Shared resources used across the entire site (e.g., `data_profile.js`).
+    - **`main/`**: Logic (`index.js`) and data (`data_cv.js`) specific to the **Main CV Page** (`index.html`).
+    - **`misc/`**: Logic (`index.js`) and data (`data_misc.js`) specific to the **Miscellaneous Page** (`misc.html`).
+        - Includes sub-modules for distinct features like **Call for Papers** (`cfp/`) and **Blog** (`blog/`).
 
-### 로컬에서 보기
-1. `index.html` 파일을 그냥 더블 탭해서 브라우저로 열어도 보입니다.
-2. 하지만 이미지 로딩이나 최적의 환경을 위해 VS Code의 **Live Server** 확장을 사용하는 것을 추천합니다.
-   - `index.html` 우클릭 -> **Open with Live Server**
+## 📐 Design Principles
 
-### 배포 방법 (GitHub Pages 등)
-- 이 폴더의 모든 파일(`index.html`, `style.css`)을 그대로 웹 호스팅 서버(public_html)나 GitHub Pages 저장소에 업로드하면 됩니다.
-- 별도의 빌드 명령(`npm run build`)은 필요 없습니다.
+1.  **Modular Architecture**:
+    Code is strictly separated by domain (`Main` vs `Misc`) and by layer (Logic vs Data). This prevents spaghetti code and makes it easy to add new pages or features without affecting the core CV.
 
-## 수정 방법
-- 텍스트 에디터(VS Code, 메모장 등)로 `index.html`을 열어서 내용을 직접 수정하시면 됩니다.
+2.  **Data-Driven Content**:
+    Content is decoupled from the specific HTML structure. All dynamic information (CV entries, deadlines, profile info) is stored in `data_*.js` files. To update your CV, you only need to edit the data files, not the HTML.
+
+3.  **Lightweight & Standard**:
+    Built using standard Web components (ES6 Modules) without the need for heavy frameworks or complex build steps.
+
+## 🚀 How to Run
+
+### Local Development
+Since this project uses ES Modules (`type="module"`), you need a local server to run it (browsers block file protocol imports for security).
+
+1.  **Using VS Code Live Server** (Recommended):
+    -   Right-click `index.html` → Select **Open with Live Server**.
+2.  **Using Python**:
+    -   Run `python3 -m http.server` in the project root.
+
+### Deployment
+Simply upload all files to any static hosting service (GitHub Pages, Vercel, Netlify). No build command is required.
+
+## 📝 How to Update
+
+-   **Update Profile**: Edit `js/common/data_profile.js`.
+-   **Update CV (Education, Publications)**: Edit `js/main/data_cv.js`.
+-   **Update Misc Page Tabs**: Edit `js/misc/data_misc.js` or `js/misc/cfp/data_cfp.js`.
