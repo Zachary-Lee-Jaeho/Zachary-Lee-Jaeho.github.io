@@ -3,189 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jaeho Lee - Ph.D. Student at CoreLab, Yonsei University">
-    <title>Jaeho Lee | CoreLab @ Yonsei</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Jaeho Lee - Curriculum Vitae</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="description" content="Curriculum Vitae of Jaeho Lee, Research Assistant at Yonsei University">
+    <style>html { scroll-behavior: smooth; }</style>
 </head>
 <body>
-    <!-- Sidebar Navigation -->
-    <nav class="sidebar">
-        <a href="#education" class="sidebar-link">Education</a>
-        <a href="#experience" class="sidebar-link">Experience</a>
-        <a href="#publications" class="sidebar-link">Publications</a>
-        <a href="#teaching" class="sidebar-link">Teaching</a>
-    </nav>
-
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="profile-placeholder">JL</div>
-            
-            <h1>Jaeho Lee</h1>
-            <p class="affiliation">
-                M.S./Ph.D. Student<br>
-                <a href="https://corelab.yonsei.ac.kr">Compiler Research Laboratory (CoreLab)</a><br>
-                <a href="https://ee.yonsei.ac.kr">School of Electrical and Electronic Engineering</a><br>
-                <a href="https://www.yonsei.ac.kr">Yonsei University</a>
-            </p>
-            
-            <nav class="nav-buttons">
-                <a href="mailto:jaeho@yonsei.ac.kr" class="nav-btn">Email</a>
-                <a href="https://github.com/Zachary-Lee-Jaeho" class="nav-btn">GitHub</a>
-                <a href="https://scholar.google.com" class="nav-btn">Scholar</a>
-                <a href="http://corelab.or.kr/CV/jaeho-short.pdf" class="nav-btn">CV PDF</a>
-            </nav>
-        </header>
+        <!-- Sidebar Container -->
+        <aside id="sidebar" class="sidebar">
+            <!-- Content rendered by main.js -->
+        </aside>
 
-        <!-- Research Interests -->
-        <section>
-            <h2>Research Interests</h2>
-            <div class="interest-list">
-                <span class="interest-item">DNN Compiler</span>
-                <span class="interest-item">Memory Optimization</span>
-                <span class="interest-item">GPU Scheduling</span>
-                <span class="interest-item">Compiler Optimization</span>
-                <span class="interest-item">System Security</span>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section id="education">
-            <h2>Education</h2>
-            
-            <div class="entry">
-                <p class="entry-title">M.S./Ph.D. in Electrical and Electronic Engineering</p>
-                <p class="entry-subtitle">Yonsei University, Seoul, Republic of Korea</p>
-                <p class="entry-meta">Advisor: Prof. Hanjun Kim</p>
-                <p class="entry-date">Mar 2020 — Present</p>
-            </div>
-            
-            <div class="entry">
-                <p class="entry-title">B.S. in Electrical and Electronic Engineering</p>
-                <p class="entry-subtitle">Yonsei University, Seoul, Republic of Korea</p>
-                <p class="entry-date">Mar 2014 — Feb 2020</p>
-            </div>
-        </section>
-
-        <!-- Experience -->
-        <section id="experience">
-            <h2>Experience</h2>
-            
-            <div class="entry">
-                <p class="entry-title">Research Assistant</p>
-                <p class="entry-subtitle">Compiler Research Laboratory (CoreLab), Yonsei University</p>
-                <ul class="entry-list">
-                    <li>Memory optimization compiler for deep learning models on GPU systems</li>
-                    <li>Memory-aware GPU job scheduling for deep neural network models</li>
-                    <li>PyTorch 2.0 compiler optimization for deep learning models</li>
-                </ul>
-                <p class="entry-date">Mar 2020 — Present</p>
-            </div>
-            
-            <div class="entry">
-                <p class="entry-title">Undergraduate Research Assistant</p>
-                <p class="entry-subtitle">Compiler Research Laboratory (CoreLab), Yonsei University</p>
-                <ul class="entry-list">
-                    <li>Linux kernel module development for storage systems</li>
-                    <li>Ransomware detection and recovery SSD add-on device</li>
-                </ul>
-                <p class="entry-date">Jan 2019 — Feb 2020</p>
-            </div>
-        </section>
-
-        <!-- Publications -->
-        <section id="publications">
-            <h2>Publications</h2>
-            
-            <p class="pub-category">[Journal]</p>
-            
-            <div class="pub-item">
-                <p class="pub-title">Privacy Set: Privacy Authority-Aware Compiler for Homomorphic Encryption on Edge-Cloud System</p>
-                <p class="pub-authors">D. Kim, Y. Lee, S. Cheon, H. Choi, <strong>J. Lee</strong>, H. Youm, D. Lee, H. Kim</p>
-                <p class="pub-venue"><strong>IEEE Internet of Things Journal</strong>, Aug 2024</p>
-                <p class="pub-links">
-                    [<a href="https://ieeexplore.ieee.org/document/10620682">IEEE</a>]
-                </p>
-            </div>
-            
-            <div class="pub-item">
-                <p class="pub-title">Compiler-assisted Semantic-aware Encryption for Efficient and Secure Serverless Computing</p>
-                <p class="pub-authors">B. Kim, S. Heo, <strong>J. Lee</strong>, S. Jeong, Y. Lee, H. Kim</p>
-                <p class="pub-venue"><strong>IEEE Internet of Things Journal</strong>, Apr 2021</p>
-                <p class="pub-links">
-                    [<a href="https://doi.org/10.1109/JIOT.2020.3031550">IEEE</a>]
-                    [<a href="https://github.com/corelab-src/selectivecrypt">GitHub</a>]
-                </p>
-            </div>
-            
-            <p class="pub-category">[Conference]</p>
-            
-            <div class="pub-item">
-                <p class="pub-title">TeMCO: Tensor Memory Compiler Optimization across Tensor Decompositions in Deep Learning Inference</p>
-                <p class="pub-authors">S. Song, J. Lee, H. Jeong, H. Kwon, S. Jeong, <strong>J. Lee</strong>, H. Kim</p>
-                <p class="pub-venue"><strong>International Conference on Parallel Processing (ICPP)</strong>, 2024</p>
-                <p class="pub-links">
-                    [<a href="https://dl.acm.org/doi/10.1145/3673038.3673048">ACM</a>]
-                </p>
-            </div>
-            
-            <div class="pub-item">
-                <p class="pub-title">Occamy: Memory-efficient GPU Compiler for DNN Inference</p>
-                <p class="pub-authors"><strong>J. Lee</strong>, S. Jeong, S. Song, K. Kim, H. Choi, Y. Kim, H. Kim</p>
-                <p class="pub-venue"><strong>Design Automation Conference (DAC)</strong>, 2023</p>
-                <p class="pub-links">
-                    [<a href="https://doi.org/10.1109/DAC56929.2023.10247839">IEEE</a>]
-                    [<a href="https://github.com/corelab-src/occamy">GitHub</a>]
-                    [<a href="http://corelab.or.kr/Pubs/dac23_occamy.pdf">PDF</a>]
-                </p>
-            </div>
-            
-            <div class="pub-item">
-                <p class="pub-title">Decoupling Schedule, Topology Layout, and Algorithm to Easily Enlarge the Tuning Space of GPU Graph Processing</p>
-                <p class="pub-authors">S. Jeong, Y. Lee, <strong>J. Lee</strong>, H. Choi, S. Song, J. Lee, Y. Kim, H. Kim</p>
-                <p class="pub-venue"><strong>International Conference on Parallel Architectures and Compilation Techniques (PACT)</strong>, 2022</p>
-                <p class="pub-links">
-                    [<a href="https://doi.org/10.1145/3559009.3569686">ACM</a>]
-                    [<a href="http://corelab.or.kr/Pubs/pact22_graphDSE.pdf">PDF</a>]
-                </p>
-            </div>
-            
-            <p class="pub-category">[Poster]</p>
-            
-            <div class="pub-item">
-                <p class="pub-title">Peak-Memory-aware Partitioning and Scheduling for Multi-tenant DNN Model Inference</p>
-                <p class="pub-authors"><strong>J. Lee</strong>, H. Kim</p>
-                <p class="pub-venue"><strong>International Symposium on Code Generation and Optimization (CGO)</strong> - SRC, 2025</p>
-            </div>
-        </section>
-
-        <!-- Teaching -->
-        <section id="teaching">
-            <h2>Teaching</h2>
-            
-            <div class="entry">
-                <p class="entry-title">MLIR Compiler Framework</p>
-                <p class="entry-subtitle">Teaching Assistant, ETRI</p>
-                <p class="entry-date">Sep 2023</p>
-            </div>
-            
-            <div class="entry">
-                <p class="entry-title">LLVM IR Optimization</p>
-                <p class="entry-subtitle">Teaching Assistant, Samsung Electronics DS Division</p>
-                <p class="entry-date">Apr 2022, Dec 2022</p>
-            </div>
-            
-            <div class="entry">
-                <p class="entry-title">EEE3313: Introductory Digital Labs</p>
-                <p class="entry-subtitle">Teaching Assistant, Yonsei University</p>
-                <p class="entry-date">Fall 2020 — Fall 2022</p>
-            </div>
-        </section>
-
+        <!-- Main Content Container -->
+        <main id="main">
+            <!-- Content rendered by main.js -->
+        </main>
+        
         <!-- Footer -->
-        <footer>
-            © 2025 Jaeho Lee
+        <footer style="grid-column: 2; margin-top: 4rem; color: #555; font-size: 0.8rem;">
+            <p>© 2026 Jaeho Lee. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- Modal Container -->
+    <div id="pub-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="modal-title" class="modal-title"></div>
+                <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-venue" class="modal-meta"></div>
+                <div class="modal-abstract">
+                    <h4>Abstract</h4>
+                    <p id="modal-abstract-text"></p>
+                </div>
+                <div id="modal-links" class="modal-links"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Logic Module -->
+    <script type="module" src="main.js"></script>
 </body>
 </html>
