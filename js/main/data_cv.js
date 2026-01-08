@@ -1,16 +1,3 @@
-// data.js
-export const profile = {
-    name: "Jaeho Lee",
-    role: "Research Assistant at Yonsei University",
-    image: "http://corelab.or.kr/~jaeho/img/images/all/jaeho_port.png",
-    contact: [
-        { icon: "fas fa-university", text: "School of Electrical and Electronic Engineering" },
-        { icon: "fas fa-flask", text: "Compiler Research Laboratory (Corelab)" },
-        { icon: "fas fa-map-marker-alt", text: "Engineering Hall #3 C407, 50 Yonsei-Ro Seodaemun-gu, Seoul, 03722" },
-        { icon: "fas fa-envelope", text: "[first_name]@yonsei.ac.kr", link: "mailto:jaeho@yonsei.ac.kr" },
-    ]
-};
-
 export const navigation = [
     { id: "education", label: "Education" },
     { id: "experience", label: "Experience" },
@@ -20,7 +7,7 @@ export const navigation = [
     { id: "misc", label: "Miscellaneous", icon: "fas fa-external-link-alt", link: "misc.html" }
 ];
 
-export const sections = {
+export const cv_sections = {
     education: [
         {
             title: "M.S./Ph.D. Student",
@@ -90,21 +77,7 @@ export const sections = {
             subtitle: "Yonsei University",
             detailsHTML: "<strong>EEE2020: Data Structure and Algorithm</strong><br>Teaching classes about how to use C++ language code"
         }
-    ],
-    misc: {
-        tabs: [
-            {
-                id: "cfp",
-                title: "Call for Papers",
-                content: "<h3>Upcoming Deadlines</h3><ul id='cfp-list'><li>Loading deadlines...</li></ul>" 
-            },
-            {
-                id: "gallery",
-                title: "Gallery",
-                content: "<p>Photo gallery coming soon...</p>"
-            }
-        ]
-    }
+    ]
 };
 
 export const publications = {

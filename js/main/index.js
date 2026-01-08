@@ -1,4 +1,5 @@
-import { profile, navigation, sections, publications } from './data.js';
+import { profile } from '../common/data_profile.js';
+import { navigation, cv_sections as sections, publications } from './data_cv.js';
 
 // --- Rendering Logic ---
 
@@ -179,82 +180,6 @@ function renderCVContent() {
     });
 }
 
-function renderMiscPage() {
-    const main = document.getElementById('misc-main');
-    if (!main) return;
-
-    // Check if sections.misc exists to avoid error
-    if (!sections.misc || !sections.misc.tabs) {
-        main.innerHTML = "<h2>Miscellaneous</h2><p>Content under construction.</p>";
-        return;
-    }
-
-    const miscTabsHeader = sections.misc.tabs.map((tab, index) => `
-        <button class="tab-button ${index === 0 ? 'active' : ''}" data-tab="${tab.id}">${tab.title}</button>
-    `).join('');
-
-    const miscTabsContent = sections.misc.tabs.map((tab, index) => `
-        <div class="tab-content ${index === 0 ? 'active' : ''}" id="tab-${tab.id}">
-            ${tab.content}
-        </div>
-    `).join('');
-
-    main.innerHTML = `
-        <section id="misc-page">
-            <h2>Miscellaneous</h2>
-            <div class="tabs-container">
-                <div class="tabs-header">
-                    ${miscTabsHeader}
-                </div>
-                <div class="tabs-body">
-                    ${miscTabsContent}
-                </div>
-            </div>
-            
-            <div style="margin-top: 2rem;">
-               <a href="index.html" style="color: var(--accent); text-decoration: none;">&larr; Back to Main CV</a>
-            </div>
-        </section>
-    `;
-
-    // Setup click listeners for Tabs
-    document.querySelectorAll('.tab-button').forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active from all buttons and contents
-            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            
-            // Add active to current
-            btn.classList.add('active');
-            const tabId = btn.getAttribute('data-tab');
-            const content = document.getElementById(`tab-${tabId}`);
-            if(content) content.classList.add('active');
-        });
-    });
-
-    // Mock/Auto Update CFP (Simple Simulation)
-    const cfpList = document.getElementById('cfp-list');
-    if (cfpList) {
-        // Simulating data fetch
-        setTimeout(() => {
-            const deadlines = [
-                { name: "ICLR 2026", date: "Oct 2025 (Expected)", tags: ["AI", "ML"] },
-                { name: "ICML 2026", date: "Jan 2026 (Expected)", tags: ["ML"] },
-                { name: "NeurIPS 2026", date: "May 2026 (Expected)", tags: ["AI", "ML"] },
-                { name: "CVPR 2026", date: "Nov 2025 (Expected)", tags: ["Vision"] }
-            ];
-            
-            cfpList.innerHTML = deadlines.map(d => `
-                <li style="margin-bottom: 0.5rem;">
-                    <strong>${d.name}</strong> - <span style="color: var(--text-secondary)">${d.date}</span>
-                    <br><span style="font-size: 0.8em; opacity: 0.7;">${d.tags.join(', ')}</span>
-                </li>
-            `).join('');
-        }, 500);
-    }
-}
-
-
 // --- Modal Logic ---
 
 // Flatten publications for easy lookup
@@ -331,7 +256,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dispatch Render based on Page
     if (document.getElementById('main')) {
         renderCVContent();
-    } else if (document.getElementById('misc-main')) {
-        renderMiscPage();
     }
 });
