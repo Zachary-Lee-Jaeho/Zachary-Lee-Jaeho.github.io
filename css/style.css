@@ -515,7 +515,380 @@ ul.details-list li::before {
     list-style: none;
     padding: 0;
 }
+
 #cfp-list li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 0;
+    border-bottom: none;
+    margin-bottom: 2rem;
+}
+
+/* CFP Controls */
+.cfp-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.cfp-select {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.cfp-toggle-btn {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cfp-toggle-btn:hover, .cfp-toggle-btn.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-heading);
+    border-color: var(--text-secondary);
+}
+
+/* CFP Card Item */
+.pub-item.cfp-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem !important; /* Force padding to override reset */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pub-item.cfp-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: #2c2e33;
+}
+
+/* Row 1: Header (Name, Cycle, D-Day) */
+.pub-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.conference-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #4dabf7; /* Accent Blue */
+    text-decoration: none;
+}
+.conference-name:hover {
+    text-decoration: underline;
+}
+
+.conference-cycle {
+    font-size: 1rem;
+    color: var(--text-heading);
+    margin-left: 0.5rem;
+}
+
+.d-day-badge {
+    background-color: #e7f5ff;
+    color: #1864ab;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.d-day-badge.urgent {
+    background-color: #ffe3e3;
+    color: #fa5252; /* Softer Red */
+}
+
+/* Row 2: Tags & Badges */
+.pub-tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.tag-hashtag {
+    color: #74c0fc; /* Soft Blue */
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.badge-bk21 {
+    background-color: #1a1b1e;
+    border: 1px solid #74c0fc;
+    color: #74c0fc;
+    font-size: 0.75rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+}
+
+.badge-kiise {
+    background-color: #1a1b1e;
+    border: 1px solid #74c0fc;
+    color: #74c0fc;
+    font-size: 0.75rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+}
+
+/* Row 3: Details (Deadline, Location) */
+.pub-details-row {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-left: 0.5rem;
+    border-left: 2px solid var(--border);
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-right: 0.5rem;
+}
+
+.detail-value {
+    color: #ff922b; /* Orange for dates */
+    font-weight: 500;
+}
+
+.detail-location {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* Row 4: Keywords */
+.pub-keywords-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.keyword-pill {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.6rem;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+
+/* Dropdown Styles for DOMAIN Filter */
+.cfp-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cfp-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.5rem;
+    background-color: #25262b;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    width: 300px;
+    z-index: 1000;
+    display: none;
+    padding: 0.5rem;
+}
+
+.cfp-dropdown-menu.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.cfp-dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.5rem;
+}
+
+.cfp-logic-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.cfp-logic-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.cfp-logic-btn.active {
+    background-color: var(--accent);
+    color: white; /* Contrast text */
+    border-color: var(--accent);
+}
+
+.cfp-dropdown-list {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.5rem;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-item input[type="checkbox"] {
+    accent-color: var(--accent);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Custom Scrollbar for Dropdown */
+.cfp-dropdown-list::-webkit-scrollbar {
+    width: 8px;
+}
+.cfp-dropdown-list::-webkit-scrollbar-track {
+    background: #1a1b1e; 
+}
+.cfp-dropdown-list::-webkit-scrollbar-thumb {
+    background: #373a40; 
+    border-radius: 4px;
+}
+.cfp-dropdown-list::-webkit-scrollbar-thumb:hover {
+    background: #5c5f66; 
+}
+
+/* --- New CFP Domain Filter Styles (Tag Cloud) --- */
+
+.cfp-controls-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Override original controls margin because wrapper handles it */
+.cfp-controls {
+    margin-bottom: 0 !important; 
+}
+
+.cfp-filter-panel {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.filter-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.filter-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.cfp-logic-toggle {
+    display: flex;
+    background-color: #1a1b1e;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.logic-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.25rem 0.8rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logic-btn.active {
+    background-color: var(--accent);
+    color: #1a1b1e; /* Dark text on light accent */
+    /* font-weight: 600; removed to prevent jitter */
+}
+
+.filter-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.cfp-filter-pill {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cfp-filter-pill:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-secondary);
+}
+
+.cfp-filter-pill.active {
+    background-color: rgba(77, 171, 247, 0.15); /* Soft Blue Tint */
+    border-color: #74c0fc;
+    color: #74c0fc;
+    /* font-weight: 600; removed to prevent jitter */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }

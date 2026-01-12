@@ -1,6 +1,6 @@
 import { profile } from '../common/data_profile.js';
 import { misc_tabs } from './data_misc.js';
-import { renderCFP } from './cfp/render.js';
+import { renderCFP, setupCFPEvents } from './cfp/render.js';
 import { renderBlog } from './blog/render.js';
 
 // --- Rendering Logic ---
@@ -83,6 +83,11 @@ function renderMiscContent() {
         </section>
     `;
 
+    // Initial Setup for CFP if it's the first tab
+    if (misc_tabs.length > 0 && misc_tabs[0].id === 'cfp') {
+        setupCFPEvents();
+    }
+
     // Setup Tab Logic
     const tabButtons = main.querySelectorAll('.tab-button');
     const tabContents = main.querySelectorAll('.tab-content');
@@ -97,7 +102,16 @@ function renderMiscContent() {
              btn.classList.add('active');
              const tabId = btn.getAttribute('data-tab');
              const targetContent = document.getElementById(`tab-${tabId}`);
-             if(targetContent) targetContent.classList.add('active');
+             if(targetContent) {
+                 targetContent.classList.add('active');
+                 // If switching to CFP, re-setup events just in case (though reRender handles it internally usually, this is safe)
+                 if (tabId === 'cfp') {
+                     // We might need to re-render if we want to reset state or just ensure events bound
+                     // But for now assumes content is static until interacted with.
+                     // Actually, if we just show/hide via CSS, events persist.
+                     // The renderMap is called once at init.
+                 }
+             }
         });
     });
 }
