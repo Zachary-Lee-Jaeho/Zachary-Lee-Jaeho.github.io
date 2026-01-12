@@ -4,7 +4,7 @@ export const navigation = [
     { id: "publications", label: "Publications" },
     { id: "activities", label: "Activities" },
     { id: "teaching", label: "Teaching" },
-    { id: "misc", label: "Miscellaneous", icon: "fas fa-external-link-alt", link: "misc.html" }
+    // { id: "misc", label: "Miscellaneous", icon: "fas fa-external-link-alt", link: "misc.html" }
 ];
 
 export const cv_sections = {
