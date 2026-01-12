@@ -5,6 +5,11 @@ trigger: always_on
 CV Web Implementation & Style Guidelines
 (public_html / GitHub Pages / Static Hosting)
 
+
+* 웹을 test하기 위해서 브라우저로 접속할 때는 무조건 localhost:5500 으로 접속해서 확인한다.
+* 만약 live server 가 켜져있지 않아 접속이 되지 않을 때는 사용자에게 알린 후 live server 켜기를 요청한다.
+* 위 두개의 원칙은 절대 위배되어선 안되며, file 의 path 로 html 을 열 경우 js 가 로드되지 않아 사실과 다른 웹을 보게될 수 있다.
+
 ---
 
 [1] Deployment & Hosting Constraints
@@ -14,6 +19,7 @@ CV Web Implementation & Style Guidelines
 * `public_html` 또는 GitHub Pages에 **파일 복사만으로 배포 가능**해야 한다.
 * SSR, API Routes, Server Actions 등 서버 런타임 의존 기능은 사용하지 않는다.
 * 새로고침 시 404가 발생하지 않도록 SPA 라우팅은 사용하지 않거나, 정적 호스팅 친화적으로 설정한다.
+
 
 ---
 
@@ -143,4 +149,3 @@ CV Web Implementation & Style Guidelines
 * 화려함보다 **정돈됨, 신뢰감, 가독성**을 우선
 * 장기 유지보수가 가능한 단순한 구조 유지
 * public_html에 올려두고 **수년간 손 안 대도 되는** 안정성 중시
-
