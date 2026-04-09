@@ -1,3 +1,15 @@
 # Logs
 logs
 *.log
+
+# latex temp files
+*.aux
+*.xdv
+*.fls
+cv.out
+*.fdb_latexmk
+*.synctex.gz
+
+.omc
+.claude
+.agent
