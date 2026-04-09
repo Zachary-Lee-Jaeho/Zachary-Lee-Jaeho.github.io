@@ -70,6 +70,26 @@ a:hover {
   gap: 1rem;
 }
 
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.4rem 1rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+.cv-download-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+  text-decoration: none;
+}
+
 .profile-img {
   width: 100%;
   max-width: 220px;

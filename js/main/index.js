@@ -25,6 +25,9 @@ function renderSidebar() {
     sidebar.innerHTML = `
         <div class="profile-section">
             <img src="${profile.image}" alt="${profile.name}" class="profile-img">
+            <a href="assets/CV/cv.pdf" download class="cv-download-btn">
+                <i class="fas fa-download"></i> Download CV
+            </a>
             <div>
                 <a href="index.html" style="text-decoration: none; color: inherit;">
                     <h1 class="profile-name">${profile.name}</h1>
