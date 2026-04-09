@@ -70,6 +70,14 @@ a:hover {
   gap: 1rem;
 }
 
+.profile-photo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.6rem;
+}
+
 .cv-download-btn {
   display: inline-flex;
   align-items: center;
@@ -82,7 +90,6 @@ a:hover {
   font-size: 0.85rem;
   text-decoration: none;
   transition: color 0.2s, border-color 0.2s;
-  align-self: center;
 }
 .cv-download-btn:hover {
   color: var(--text-primary);
