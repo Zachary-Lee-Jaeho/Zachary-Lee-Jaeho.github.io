@@ -74,7 +74,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-self: flex-start;
   gap: 0.6rem;
 }
 
@@ -183,9 +182,16 @@ main {
   }
 
   .profile-img {
-    align-self: center;
     max-width: 200px;
     height: 260px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .profile-photo-wrap {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 
   .contact-info {
