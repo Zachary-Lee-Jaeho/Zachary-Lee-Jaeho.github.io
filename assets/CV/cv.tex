@@ -1,183 +1,140 @@
 %-------------------------
 % Resume  —  Jaeho Lee
-% Compiled with pdflatex or lualatex
+% Compiled with xelatex + bibtex
 %-------------------------
-\documentclass[12pt,letterpaper]{article}
+\documentclass{cv}
 
-%--- Packages ----------------------------------------------------------------
-\usepackage[top=0.5in, bottom=0.5in, left=0.6in, right=0.6in]{geometry}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[sfdefault]{carlito}
-\usepackage{microtype}
+\input{cv-meta}
 
-%--- Remove paragraph indent -------------------------------------------------
-\setlength{\parindent}{0pt}
-
-%--- Colors ------------------------------------------------------------------
-\definecolor{accent}{HTML}{2563EB}
-\definecolor{darkgray}{HTML}{1e293b}
-\definecolor{medgray}{HTML}{475569}
-\definecolor{lightgray}{HTML}{94a3b8}
-
-%--- Hyperref setup ----------------------------------------------------------
 \hypersetup{
   colorlinks=true,
   linkcolor=darkgray,
   urlcolor=darkgray,
-  pdfauthor={Jaeho Lee},
-  pdftitle={Jaeho Lee -- CV},
+  pdfauthor={\cvname},
+  pdftitle={\cvname{} -- CV},
 }
 
-%--- Section formatting ------------------------------------------------------
-\titleformat{\section}
-  {\normalsize\bfseries\color{darkgray}\uppercase}
-  {}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{0.7em}{0.35em}
-
-%--- List formatting ---------------------------------------------------------
-\setlist[itemize]{leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0.15em}
-\setlist[enumerate]{leftmargin=2.8em, itemsep=0.35em, parsep=0pt, topsep=0.15em}
-
-%--- Remove page number (single page) ---------------------------------------
-\pagestyle{empty}
-
-%--- Custom commands ---------------------------------------------------------
-\newcommand{\entrytitle}[1]{\textbf{#1}}
-\newcommand{\entrymeta}[1]{\hfill{\small\color{medgray}#1}}
-\newcommand{\entrydetail}[1]{{\small\color{medgray}#1}}
-\newcommand{\authorhl}[1]{\textbf{\underline{#1}}}
-\newcommand{\pubtitle}[1]{\textit{#1}}
+\addbibresource{cv-pubs.bib}
 
 %=============================================================================
 \begin{document}
 
-%--- Title Block -------------------------------------------------------------
-\begin{center}
-  {\LARGE\bfseries Jaeho Lee} \\[0.25em]
-  {\small
-    Yonsei University, Republic of Korea
-    \enspace$|$\enspace
-    \texttt{jaeho [at] yonsei.ac.kr}
-    \enspace$|$\enspace
-    \href{http://corelab.yonsei.ac.kr}{corelab.yonsei.ac.kr}
-    \\
-    \href{https://zachary-lee-jaeho.github.io}{zachary-lee-jaeho.github.io}
-    \enspace$|$\enspace
-    \href{https://www.linkedin.com/in/zachary-lee-jaeho}{linkedin.com/in/zachary-lee-jaeho}
-  }
-\end{center}
+\makecvtitle
 
 %--- Education ---------------------------------------------------------------
 \section{Education}
 
-\entrytitle{Yonsei University} \entrymeta{Seoul, South Korea} \\
-\entrydetail{Integrated M.S./Ph.D., School of Electrical and Electronic Engineering} \entrymeta{Mar 2020 -- Aug 2026} \\
-\entrydetail{Advisor: Prof.\ Hanjun Kim \enspace$\cdot$\enspace Compiler Research Laboratory (CoreLab)}
-
-\vspace{0.4em}
-
-\entrytitle{Yonsei University} \entrymeta{Seoul, South Korea} \\
-\entrydetail{B.Eng.\ in Electrical and Electronic Engineering} \entrymeta{Mar 2014 -- Feb 2020}
-
-%--- Research Interests ------------------------------------------------------
-\section{Research Interests}
-
-\small
-\textbf{Research:} Compiler Optimization, Deep Learning Compilers, GPU Memory Optimization, Neural Network Inference \\
-\textbf{Technical:} LLVM/MLIR, PyTorch, C/C++, Python, CUDA
-
-%--- Experience --------------------------------------------------------------
-\section{Experience}
-
-\entrytitle{Research Assistant,} 
-\entrydetail{Compiler Research Laboratory (CoreLab), Yonsei University}
-\entrymeta{Mar 2020 -- Present} 
+\entrytitle{Yonsei University, }
+\entrydetail{Integrated M.S./Ph.D., School of Electrical and Electronic Engineering} \entrymeta{Mar 2020 -- Aug 2026}
 \begin{itemize}
-  \item \textbf{Memory-efficient DNN Compilation on GPUs}: Developed compiler techniques to reduce peak memory usage during deep neural network inference on GPU systems. \textit{[C2, C3, J3]}
-  \item \textbf{Compiler for Security and Privacy}: Designed compiler-assisted frameworks for semantic-aware encryption and homomorphic encryption on edge-cloud systems. \textit{[J1, J2]}
-  \item \textbf{GPU Systems Optimization}: Investigated decoupled tuning strategies for GPU graph processing to enlarge the optimization search space. \textit{[C1]}
+  \item Compiler Design, Program Analysis, GPU Systems Optimization, Memory Optimization, etc
 \end{itemize}
 
 \vspace{0.4em}
 
-\entrytitle{Undergraduate Research Assistant,} 
-\entrydetail{Compiler Research Laboratory (CoreLab), Yonsei University}
-\entrymeta{Jan 2019 -- Feb 2020} 
+\entrytitle{Yonsei University,}
+\entrydetail{Bachelor in Electrical and Electronic Engineering} \entrymeta{Mar 2014 -- Feb 2020}
+\begin{itemize}
+  \item Operating Systems, Computer Architecture, Microprocessor, Deep Learning, etc
+\end{itemize}
+
+%--- Experience --------------------------------------------------------------
+\section{Experience}
+
+\entrytitle{Graduate Researcher,}
+\entrydetail{Compiler Research Lab (CoreLab), Yonsei University}
+\entrymeta{Mar 2020 -- Present}
+\begin{itemize}
+  \item \textbf{Memory-efficient DNN Compilation on GPUs}: Developed compiler techniques to reduce peak memory usage during deep neural network inference on GPU systems. \textit{\refcite{C2,C3,J3}}
+  \item \textbf{GPU Systems Optimization}: Investigated decoupled tuning strategies for GPU graph processing to enlarge the optimization search space. \textit{\refcite{C1}}
+  \item \textbf{Compiler for Security and Privacy}: Designed compiler-assisted frameworks for semantic-aware encryption and homomorphic encryption on edge-cloud systems. \textit{\refcite{J1,J2}}
+\end{itemize}
+
+\vspace{0.4em}
+
+\entrytitle{Undergraduate Research Assistant,}
+\entrydetail{Compiler Research Lab (CoreLab), Yonsei University}
+\entrymeta{Jan 2019 -- Feb 2020}
 \begin{itemize}
   \item Linux kernel module development for storage performance optimization
   \item Ransomware detection and recovery via SSD add-on device and device driver implementation
-  \item Reliable IoT device application development with adaptive communication protocols
+\end{itemize}
+
+%--- Research Projects -------------------------------------------------------
+\section{Research Projects}
+
+\entrytitle{Compiler-Driven Memory Optimization for DNN Inference} \entrymeta{Mar 2022 -- Feb 2024}
+\begin{itemize}
+  \item {[Project Lead / Collaborator]} Led memory-efficient DNN inference compiler design (lead); contributed to tensor decomposition memory optimization (collaborator).
+  \item Developed tensor liveness analysis, layer fusion, tensor coalescing, and memory pool scheduling on MLIR; contributed to tensor decomposition optimization across DNN inference pipeline.
+  \item Result: \refcite{C2,C3}, 2 patents filed; 34.6\% memory reduction, 1.25$\times$ speedup vs.\ PyTorch.
+\end{itemize}
+
+\vspace{0.4em}
+
+\entrytitle{Peak-Memory-Aware Multitenant DNN Inference} \entrymeta{Mar 2024 -- Present}
+\begin{itemize}
+  \item {[Project Lead (7-person)]} Led peak-memory-aware DNN model partitioning and scheduling for multitenant GPU inference; collaborated with Samsung Electronics on DNN compiler scheduling language.
+  \item Developed Tailor-and-Stitch task partitioning, GPU-resident shared tensor pool, and yield execution strategy; designed intra/inter-kernel scheduling language over Triton.
+  \item Result: \refcite{J3,P2}, 2 patents filed; 25.4\%/37.7\% latency reduction, 10.8\% faster than Triton.
+\end{itemize}
+
+\vspace{0.4em}
+
+\entrytitle{Processing in Memory Acceleration} \entrymeta{2024 -- 2025}
+\begin{itemize}
+  \item {[Collaborator]} Investigated approximation-based, inter-PE communication-free image filtering for commodity PIM hardware.
+  \item Contributed to PIM kernel execution and scheduling method design for Samsung PIM devices.
+  \item Result: \refcite{P3}, 2 patents filed.
 \end{itemize}
 
 %--- Publications ------------------------------------------------------------
 \section{Publications}
 
+\nocite{*}
+
 \textbf{Refereed International Conferences}
-
-\begin{enumerate}[label={[C\arabic*]}]
-  \item Shinnung Jeong, Yongwoo Lee, \authorhl{Jaeho Lee}, Heelim Choi, Seungbin Song, Jinho Lee, Youngsok Kim, and Hanjun Kim,
-    \pubtitle{Decoupling Schedule, Topology Layout, and Algorithm to Easily Enlarge the Tuning Space of GPU Graph Processing},
-    \textbf{International Conference on Parallel Architectures and Compilation Techniques (PACT)}, 2022.
-
-  \item \authorhl{Jaeho Lee}, Shinnung Jeong, Seungbin Song, Kunwoo Kim, Heelim Choi, Youngsok Kim, and Hanjun Kim,
-    \pubtitle{Occamy: Memory-efficient GPU Compiler for DNN Inference},
-    \textbf{Design Automation Conference (DAC)}, 2023.
-
-  \item Seungbin Song, Ju Min Lee, Haeeun Jeong, Hyunho Kwon, Shinnung Jeong, \authorhl{Jaeho Lee}, and Hanjun Kim,
-    \pubtitle{TeMCO: Tensor Memory Compiler Optimization across Tensor Decompositions in Deep Learning Inference},
-    \textbf{International Conference on Parallel Processing (ICPP)}, 2024.
-\end{enumerate}
+\printbibliography[check=isconf, heading=none]
 
 \vspace{0.4em}
 \textbf{Refereed Journals}
-
-\begin{enumerate}[label={[J\arabic*]}]
-  \item Bongjun Kim, Seonyeong Heo, \authorhl{Jaeho Lee}, Shinnung Jeong, Yongwoo Lee, and Hanjun Kim,
-    \pubtitle{Compiler-assisted Semantic-aware Encryption for Efficient and Secure Serverless Computing},
-    \textbf{IEEE Internet of Things Journal (IoTJ)}, Apr 2021. (IF=9.936, Q1)
-
-  \item Dongkwan Kim, Yongwoo Lee, Seonyoung Cheon, Heelim Choi, \authorhl{Jaeho Lee}, Hoyun Youm, Dongyoon Lee, and Hanjun Kim,
-    \pubtitle{Privacy Set: Privacy Authority-Aware Compiler for Homomorphic Encryption on Edge-Cloud System},
-    \textbf{IEEE Internet of Things Journal (IoTJ)}, Aug 2024. (IF=8.2, Q1)
-
-  \item \authorhl{Jaeho Lee}, Ju Min Lee, Haeeun Jeong, Hyunho Kwon, Youngsok Kim, Yongjun Park, and Hanjun Kim,
-    \pubtitle{Peak-Memory-aware Partitioning and Scheduling for Multi-tenant DNN Model Inference},
-    \textbf{Journal of Systems Architecture (JSA)}, Jan 2026. (IF=4.1, Q1)
-\end{enumerate}
+\printbibliography[check=isjour, heading=none]
 
 \vspace{0.4em}
 \textbf{Posters}
-
-\begin{enumerate}[label={[P\arabic*]}]
-  \item Dongkwan Kim, Yongwoo Lee, Seonyoung Cheon, Heelim Choi, \authorhl{Jaeho Lee}, Dongyoon Lee, and Hanjun Kim,
-    \pubtitle{Privacy Authority-Aware Compiler for Homomorphic Encryption on Edge-Cloud},
-    \textbf{USENIX Security Symposium (USENIX Security)}, 2023.
-
-  \item \authorhl{Jaeho Lee} and Hanjun Kim,
-    \pubtitle{Peak-Memory-aware Partitioning and Scheduling for Multi-tenant DNN Model Inference},
-    \textbf{ACM International Symposium on Code Generation and Optimization Student Research Competition (CGO SRC)}, 2025.
-
-  \item Chan Lee, Shinnung Jeong, Heelim Choi, \authorhl{Jaeho Lee}, Haeeun Jeong, Hoyun Youm, Ju Min Lee, and Hanjun Kim,
-    \pubtitle{Approximation-based Inter-PE Communication-free Image Filtering for Commodity PIM},
-    \textbf{Design Automation Conference (DAC)}, 2025.
-\end{enumerate}
+\printbibliography[check=ispost, heading=none]
 
 \vspace{0.4em}
 \textbf{Patents}
 
 \begin{itemize}[itemsep=0.35em]
+  \item Hanjun Kim, \authorhl{Jaeho Lee}, Hyunho Kwon, Ju Min Lee, and Haeeun Jeong,
+    \pubtitle{Electronic Device Performing Inference by Partitioning Neural Network Model in Multi-tenant Environment and Operating Method Thereof},
+    KR Patent App.\ 10-2025-0130051, Sep 2025.
+
+  \item Hanjun Kim, Haeeun Jeong, Hyunho Kwon, \authorhl{Jaeho Lee}, Ju Min Lee, and Heelim Choi,
+    \pubtitle{Electronic Device and Method for Controlling Bit Precision of DNN Model},
+    KR Patent App.\ 10-2025-0016828, Feb 2025.
+
+  \item Hanjun Kim, Heelim Choi, Chan Lee, Ju Min Lee, \authorhl{Jaeho Lee}, Yongwoo Lee, Seongwoo Yoon, and Dongkwan Kim,
+    \pubtitle{Method for Executing Kernel and Configuring Kernel Execution Using PIM Device},
+    KR Patent App.\ 10-2025-0180869, Nov 2025.
+
+  \item Hanjun Kim, Chan Lee, Heelim Choi, Haeeun Jeong, Shinnung Jeong, Ju Min Lee, \authorhl{Jaeho Lee}, and Hoyun Youm,
+    \pubtitle{Image Filtering Method},
+    KR Patent App.\ 10-2025-0181300, Nov 2025.
+
   \item Hanjun Kim, Seungbin Song, Hyunho Kwon, Ju Min Lee, Haeeun Jeong, and \authorhl{Jaeho Lee},
     \pubtitle{Compile Method and Apparatus for Neural Network},
     KR Patent App.\ 10-2024-0088419, Jul 2024.
 
-  \item Hanjun Kim, Bongjun Kim, \authorhl{Jaeho Lee}, Seonyeong Heo, Shinnung Jeong, and Yongwoo Lee,
+  \item Hanjun Kim, Seungbin Song, Ju Min Lee, Haeeun Jeong, Hyunho Kwon, and \authorhl{Jaeho Lee},
+    \pubtitle{Apparatus and Method for Optimizing Memory Usage of Deep Learning Model Using Tensor Decomposition},
+    KR Patent (filed Jul 2024).
+
+  \item Hanjun Kim, \authorhl{Jaeho Lee}, Bongjun Kim, Seonyeong Heo, Shinnung Jeong, and Yongwoo Lee,
     \pubtitle{IoT Service Providing Method Based on Adaptive Encryption and IoT Apparatus},
-    KR Patent.
+    KR Patent 10-2508448, Mar 2023.
 \end{itemize}
 
 %--- Teaching ----------------------------------------------------------------

@@ -6,9 +6,14 @@ logs
 *.aux
 *.xdv
 *.fls
-cv.out
+*.out
 *.fdb_latexmk
 *.synctex.gz
+*.bbl
+*.blg
+*.run.xml
+*-blx.bib
+
 
 .omc
 .claude
