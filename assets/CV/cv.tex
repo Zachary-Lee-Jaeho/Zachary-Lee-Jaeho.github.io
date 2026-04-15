@@ -45,9 +45,10 @@
 \entrydetail{Compiler Research Lab (CoreLab), Yonsei University}
 \entrymeta{Mar 2020 -- Present}
 \begin{itemize}
-  \item \textbf{Memory-efficient DNN Compilation on GPUs}: Developed compiler techniques to reduce peak memory usage during deep neural network inference on GPU systems. \textit{\refcite{C2,C3,J3}}
-  \item \textbf{GPU Systems Optimization}: Investigated decoupled tuning strategies for GPU graph processing to enlarge the optimization search space. \textit{\refcite{C1}}
-  \item \textbf{Compiler for Security and Privacy}: Designed compiler-assisted frameworks for semantic-aware encryption and homomorphic encryption on edge-cloud systems. \textit{\refcite{J1,J2}}
+  \item \textbf{Memory-efficient DNN Compilation on GPUs}: Developed compiler techniques to reduce peak memory usage during deep neural network inference on GPU systems. \refcite{C2,C3,J3}
+  \item \textbf{GPU Systems Optimization}: Investigated decoupled tuning strategies for GPU graph processing to enlarge the optimization search space. \refcite{C1}
+  \item \textbf{Processing in Memory Acceleration}: Investigated approximation-based, inter-PE communication-free image filtering for commodity PIM hardware; contributed to PIM kernel execution and scheduling. \refcite{P3}
+  \item \textbf{Compiler for Security and Privacy}: Designed compiler-assisted frameworks for semantic-aware encryption and homomorphic encryption on edge-cloud systems. \refcite{J1,J2}
 \end{itemize}
 
 \vspace{0.4em}
@@ -63,23 +64,38 @@
 %--- Research Projects -------------------------------------------------------
 \section{Research Projects}
 
-\entrytitle{Compiler-Driven Memory Optimization for DNN Inference} \entrymeta{Mar 2022 -- Feb 2024}
+\entrytitle{Compiler-Driven Memory Optimization for DNN Inference} \entrymeta{Mar 2020 -- Feb 2022}
 \begin{itemize}
-  \item {[Project Lead / Collaborator]} Led memory-efficient DNN inference compiler design (lead); contributed to tensor decomposition memory optimization (collaborator).
+  \item \textbf{[Project Lead (6-person) / Collaborator]} Led memory-efficient DNN inference compiler design (lead); contributed to tensor decomposition memory optimization (collaborator).
   \item Developed tensor liveness analysis, layer fusion, tensor coalescing, and memory pool scheduling on MLIR; contributed to tensor decomposition optimization across DNN inference pipeline.
   \item Result: \refcite{C2,C3}, 2 patents filed; 34.6\% memory reduction, 1.25$\times$ speedup vs.\ PyTorch.
 \end{itemize}
 
 \vspace{0.4em}
 
-\entrytitle{Peak-Memory-Aware Multitenant DNN Inference} \entrymeta{Mar 2024 -- Present}
+\entrytitle{Peak-Memory-Aware Multitenant DNN Inference} \entrymeta{Mar 2022 -- Feb 2026}
 \begin{itemize}
-  \item {[Project Lead (7-person)]} Led peak-memory-aware DNN model partitioning and scheduling for multitenant GPU inference; collaborated with Samsung Electronics on DNN compiler scheduling language.
-  \item Developed Tailor-and-Stitch task partitioning, GPU-resident shared tensor pool, and yield execution strategy; designed intra/inter-kernel scheduling language over Triton.
+  \item \textbf{[Project Lead (7-person)]} Led peak-memory-aware DNN model partitioning and scheduling for multi-tenant DNN inference on a memory-constrained GPU.
+  \item Developed Tailor-and-Stitch task partitioning, GPU-resident shared tensor pool, and yield execution strategy.
+  \item \textbf{[Project Lead (4-person)]} Collaborated with Samsung Electronics on DNN compiler scheduling language.
+  \begin{itemize}
+    \item Designed intra/inter-kernel scheduling language over Triton.
+  \end{itemize}
   \item Result: \refcite{J3,P2}, 2 patents filed; 25.4\%/37.7\% latency reduction, 10.8\% faster than Triton.
 \end{itemize}
 
 \vspace{0.4em}
+
+\entrytitle{Compiler for Security and Privacy} \entrymeta{2020 -- 2024}
+\begin{itemize}
+  \item {[Collaborator]} Contributed to compiler-assisted semantic-aware encryption for serverless computing
+  \item {[Collaborator]} Privacy authority-aware compiler for homomorphic encryption on edge-cloud systems.
+  \item Result: \refcite{J1,J2,P1}.
+\end{itemize}
+
+\vspace{0.4em}
+
+\newpage
 
 \entrytitle{Processing in Memory Acceleration} \entrymeta{2024 -- 2025}
 \begin{itemize}
@@ -93,19 +109,19 @@
 
 \nocite{*}
 
-\textbf{Refereed International Conferences}
+\entrytitle{Refereed International Conferences}
 \printbibliography[check=isconf, heading=none]
 
 \vspace{0.4em}
-\textbf{Refereed Journals}
+\entrytitle{Refereed Journals}
 \printbibliography[check=isjour, heading=none]
 
 \vspace{0.4em}
-\textbf{Posters}
+\entrytitle{Posters}
 \printbibliography[check=ispost, heading=none]
 
 \vspace{0.4em}
-\textbf{Patents}
+\entrytitle{Patents}
 
 \begin{itemize}[itemsep=0.35em]
   \item Hanjun Kim, \authorhl{Jaeho Lee}, Hyunho Kwon, Ju Min Lee, and Haeeun Jeong,

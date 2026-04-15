@@ -8,7 +8,6 @@
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
 \RequirePackage[T1]{fontenc}
-\RequirePackage[utf8]{inputenc}
 \RequirePackage[backend=bibtex,style=numeric,sorting=none,maxnames=100]{biblatex}
 
 % Entry type filters (bibtex backend doesn't support type= in \printbibliography)
@@ -84,10 +83,13 @@
   \finentry
 }
 
-\RequirePackage{xcolor}
 \RequirePackage[sfdefault]{carlito}
+\RequirePackage{xcolor}
 \RequirePackage{microtype}
 \RequirePackage{hyperref}
+
+% Line spacing
+\linespread{1.1}
 
 % Remove paragraph indent
 \setlength{\parindent}{0pt}
@@ -126,9 +128,9 @@
       \cvinstitution
       \enspace$|$\enspace
       \texttt{\cvemail}
-      \enspace$|$\enspace
-      \href{\cvlabfullurl}{\cvlaburl}
       \\
+      \href{\cvlabfullurl}{\cvlaburl}
+      \enspace$|$\enspace
       \href{\cvwebfullurl}{\cvweburl}
       \enspace$|$\enspace
       \href{\cvlinkedinfullurl}{\cvlinkedinurl}

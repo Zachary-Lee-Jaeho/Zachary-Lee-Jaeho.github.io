@@ -10,6 +10,7 @@ logs
 *.fdb_latexmk
 *.synctex.gz
 *.bbl
+*.pdf.bak
 *.blg
 *.run.xml
 *-blx.bib
