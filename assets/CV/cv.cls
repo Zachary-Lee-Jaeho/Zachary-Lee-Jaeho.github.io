@@ -1,3 +1,4 @@
+% font variations: tiny, scriptsize, footnotesize, small, normalsize, large, Large, LARGE, huge, Huge
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cv}[2026/04/14 Jaeho Lee CV class]
 
@@ -8,7 +9,7 @@
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
 \RequirePackage[T1]{fontenc}
-\RequirePackage[backend=bibtex,style=numeric,sorting=none,maxnames=100]{biblatex}
+\RequirePackage[backend=bibtex,style=numeric,sorting=debug,maxnames=100]{biblatex}
 
 % Entry type filters (bibtex backend doesn't support type= in \printbibliography)
 \defbibcheck{isconf}{\ifentrytype{inproceedings}{}{\skipentry}}
@@ -102,7 +103,7 @@
 
 % Section formatting
 \titleformat{\section}
-  {\normalsize\bfseries\color{darkgray}\uppercase}
+  {\large\bfseries\color{darkgray}\uppercase}
   {}{0em}{}[\titlerule]
 \titlespacing*{\section}{0pt}{0.7em}{0.35em}
 
@@ -114,7 +115,7 @@
 \pagestyle{empty}
 
 % Custom commands
-\newcommand{\entrytitle}[1]{\textbf{#1}}
+\newcommand{\entrytitle}[1]{{\large\textbf{#1}}}
 \newcommand{\entrymeta}[1]{\hfill{\small\color{medgray}#1}}
 \newcommand{\entrydetail}[1]{{\small\color{medgray}#1}}
 \newcommand{\authorhl}[1]{\textbf{\underline{#1}}}
