@@ -10,6 +10,7 @@
   colorlinks=true,
   linkcolor=darkgray,
   urlcolor=darkgray,
+  citecolor=darkgray,
   pdfauthor={\cvname},
   pdftitle={\cvname{} -- CV},
 }
@@ -19,54 +20,9 @@
 %=============================================================================
 \begin{document}
 
+\nocite{*}
+
 \makecvtitle
-
-%--- Research Projects -------------------------------------------------------
-\section{Research Projects}
-
-\entrytitle{Compiler-Driven Memory Optimization for DNN Inference} \entrymeta{Mar 2020 -- Feb 2023}
-\begin{itemize}
-  \item \textbf{[Project Lead (6-person) / Collaborator]} Led memory-efficient DNN inference compiler design (lead); contributed to tensor decomposition memory optimization (collaborator).
-  \begin{itemize}
-    \item Developed tensor liveness analysis, layer fusion, tensor coalescing, and memory pool scheduling on MLIR; contributed to tensor decomposition optimization across DNN inference pipeline.
-  \end{itemize}
-  \item Result: \refcite{C2,C3}, 2 patents filed; 34.6\% memory reduction, 1.25$\times$ speedup vs.\ PyTorch.
-\end{itemize}
-
-\vspace{0.4em}
-
-\entrytitle{Peak-Memory-Aware Multitenant DNN Inference} \entrymeta{Mar 2023 -- Feb 2026}
-\begin{itemize}
-  \item \textbf{[Project Lead (7-person)]} Led peak-memory-aware DNN model partitioning and scheduling for multi-tenant DNN inference on a memory-constrained GPU.
-  \begin{itemize}
-    \item Developed Tailor-and-Stitch task partitioning, GPU-resident shared tensor pool, and yield execution strategy.
-  \end{itemize}
-  \item \textbf{[Project Lead (4-person)]} Collaborated with Samsung Electronics on DNN compiler scheduling language.
-  \begin{itemize}
-    \item Designed intra/inter-kernel scheduling language over Triton.
-  \end{itemize}
-  \item Result: \refcite{J3,P2}, 2 patents filed; 25.4\%/37.7\% latency reduction, 10.8\% faster than Triton.
-\end{itemize}
-
-\vspace{0.4em}
-
-\entrytitle{Processing in Memory Acceleration} \entrymeta{[Sub-project] 2024 -- 2025}
-\begin{itemize}
-  \item {[Collaborator]} Investigated approximation-based, inter-PE communication-free image filtering for commodity PIM hardware.
-  \begin{itemize}
-    \item Contributed to PIM kernel execution and scheduling method design for Samsung PIM devices.
-  \end{itemize}
-  \item Result: \refcite{P3}, 2 patents filed.
-\end{itemize}
-
-\vspace{0.4em}
-
-\entrytitle{Compiler for Security and Privacy} \entrymeta{[Sub-project] 2020 -- 2024}
-\begin{itemize}
-  \item {[Collaborator]} Contributed to compiler-assisted semantic-aware encryption for serverless computing
-  \item {[Collaborator]} Privacy authority-aware compiler for homomorphic encryption on edge-cloud systems.
-  \item Result: \refcite{J1,J2,P1}.
-\end{itemize}
 
 %--- Education ---------------------------------------------------------------
 \section{Education}
@@ -93,10 +49,9 @@
 \entrydetail{Compiler Research Lab (CoreLab), Yonsei University}
 \entrymeta{Mar 2020 -- Present}
 \begin{itemize}
-  \item \textbf{Memory-efficient DNN Compilation on GPUs}: Developed compiler techniques to reduce peak memory usage during deep neural network inference on GPU systems. \refcite{C2,C3,J3}
-  \item \textbf{GPU Systems Optimization}: Investigated decoupled tuning strategies for GPU graph processing to enlarge the optimization search space. \refcite{C1}
-  \item \textbf{Processing in Memory Acceleration}: Investigated approximation-based, inter-PE communication-free image filtering for commodity PIM hardware; contributed to PIM kernel execution and scheduling. \refcite{P3}
-  \item \textbf{Compiler for Security and Privacy}: Designed compiler-assisted frameworks for semantic-aware encryption and homomorphic encryption on edge-cloud systems. \refcite{J1,J2}
+  \item \textbf{Memory-Efficient DNN Inference Compilation}: MLIR-based peak-memory optimization for GPU inference. \refcite{conf:temco,conf:occamy}
+  \item \textbf{Scheduling for DNN Inference}: Runtime task scheduling and compiler DSL for multi-tenant and HW co-design. \refcite{jour:quilt,poster:quilt}
+  \item \textbf{Skills}: C/C++, Python, CUDA, ROCm, LLVM/MLIR, Triton, PyTorch
 \end{itemize}
 
 \vspace{0.4em}
@@ -105,15 +60,63 @@
 \entrydetail{Compiler Research Lab (CoreLab), Yonsei University}
 \entrymeta{Jan 2019 -- Feb 2020}
 \begin{itemize}
-  \item Linux kernel module development for storage performance optimization
-  \item Ransomware detection and recovery via SSD add-on device and device driver implementation
+  \item Developed Linux kernel modules for storage performance optimization
+  \item Built an SSD add-on device and driver for ransomware detection and recovery
+  \item \textbf{Skills}: Linux kernel driver (USB Gadget, SCSI BOT), ARM64 embedded
+\end{itemize}
+
+%--- Research Projects -------------------------------------------------------
+\section{Research Projects}
+
+\entrytitle{Memory-Efficient DNN Inference Compilation} \entrymeta{Mar 2020 -- Aug 2024}
+\begin{itemize}
+  \item \textbf{[Project Lead (6-person) / Collaborator]} Compile-time memory optimization that reduces peak GPU memory usage during single-model DNN inference.
+  \begin{itemize}
+    \item Designed an MLIR/GPU memory pool compiler with tensor liveness, layer fusion, and tensor coalescing.
+    \item Co-developed skip-connection substitution and activation-layer fusion for tensor-decomposed models.
+  \end{itemize}
+  \item Result: \refcite{conf:temco,conf:occamy}; 1 patent filed; 34.6\% memory reduction with 1.25$\times$ speedup over PyTorch, 75.7\% internal-tensor peak-memory reduction on 10 models.
+\end{itemize}
+
+\vspace{0.4em}
+
+\entrytitle{Scheduling for DNN Inference} \entrymeta{Mar 2023 -- Feb 2026}
+\begin{itemize}
+  \item \textbf{[Project Lead (7-person) / Project Lead (4-person)]} Explicit scheduling for DNN inference spanning task-level runtime scheduling and kernel-level compiler DSL.
+  \begin{itemize}
+    \item Designed Tailor-and-Stitch partitioning, shared tensor pool, and yield execution for multi-tenant inference.
+    \item Designed a Triton-based intra/inter-kernel scheduling DSL for HW-compiler co-design.
+  \end{itemize}
+  \item Result: \refcite{jour:quilt,poster:quilt}; 2 patents filed; 25.4\%/37.7\% latency reduction and 10.8\% faster than Triton.
+\end{itemize}
+
+\vspace{0.4em}
+
+\entrytitle{Approximation-based PIM Acceleration} \entrymeta{[Sub-project] 2024 -- 2025}
+\begin{itemize}
+  \item \textbf{[Collaborator]} Approximation-based image filtering eliminating inter-PE communication on commodity DRAM-PIM.
+  \begin{itemize}
+    \item Contributed to kernel scheduling for frequency-aware Input/Output Approximation and Boundary Duplication.
+  \end{itemize}
+  \item Result: \refcite{poster:pim}; 2 patents filed; 7.22$\times$ vs.\ PIM baseline and 5.23$\times$ vs.\ RTX 4090 on UPMEM, preserving 98.03\% accuracy.
+\end{itemize}
+
+\vspace{0.4em}
+
+\entrytitle{Compiler for Privacy-Preserving Computing} \entrymeta{[Sub-project] 2020 -- 2024}
+\begin{itemize}
+  \item \textbf{[Collaborator]} Programming-language and compiler for encrypted computation on serverless IoT and edge-cloud.
+  \begin{itemize}
+    \item Co-developed a compiler coloring algorithm that selects HE vs.\ symmetric encryption by semantics.
+    \item Contributed to a privacy-authority type system (Edge/Cloud/All/None) for type-directed FHE partitioning.
+  \end{itemize}
+  \item Result: \refcite{jour:pset,poster:pset,jour:selectivecrypt}; 1 patent granted; 1.59$\times$ faster response with 9.61$\times$ less communication, 4.92$\times$ speedup over partitioning-unaware FHE compilers.
 \end{itemize}
 
 
 %--- Publications ------------------------------------------------------------
-\section{Publications}
 
-\nocite{*}
+\section{Publications}
 
 \entrytitle{Refereed International Conferences}
 \printbibliography[check=isconf, heading=none]
@@ -163,23 +166,23 @@
 \section{Teaching}
 
 \entrytitle{Teaching Assistant}, MLIR Compiler Framework, ETRI \entrymeta{Sep 2023} \\
-\entrydetail{Teaching the overall MLIR framework with optimizations with custom dialects}
+\entrydetail{Covered the MLIR framework including optimization passes and custom dialect development}
 
 \vspace{0.4em}
 
 \entrytitle{Teaching Assistant}, IR Optimization with LLVM, Samsung Electronics DS Division \entrymeta{Apr 2022, Dec 2022} \\
-\entrydetail{Teaching how to write LLVM passes for program analysis and optimization}
+\entrydetail{Covered how to implement LLVM passes for program analysis and optimization}
 
 
 %--- Activities --------------------------------------------------------------
 \section{Activities}
 
 \entrytitle{Artifact Evaluation Committee}, USENIX Security Symposium \entrymeta{2025} \\
-\entrydetail{Reviewing artifact submissions for the international conference}
+\entrydetail{Reviewed artifact submissions for the USENIX Security Symposium}
 
 \vspace{0.4em}
 
 \entrytitle{Student Volunteer}, 58th IEEE/ACM International Symposium on Microarchitecture (MICRO) \entrymeta{Oct 2025} \\
-\entrydetail{Serving as registration center at the international conference}
+\entrydetail{Assisted with conference operations including session management, web support, and registration}
 
 \end{document}

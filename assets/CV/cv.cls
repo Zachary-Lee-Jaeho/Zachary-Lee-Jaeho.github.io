@@ -9,14 +9,14 @@
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
 \RequirePackage[T1]{fontenc}
-\RequirePackage[backend=bibtex,style=numeric,sorting=debug,maxnames=100]{biblatex}
+\RequirePackage[backend=bibtex,style=numeric,sorting=none,sortcites=true,maxnames=100]{biblatex}
 
 % Entry type filters (bibtex backend doesn't support type= in \printbibliography)
 \defbibcheck{isconf}{\ifentrytype{inproceedings}{}{\skipentry}}
 \defbibcheck{isjour}{\ifentrytype{article}{}{\skipentry}}
 \defbibcheck{ispost}{\ifentrytype{misc}{}{\skipentry}}
 
-% Bibliography list environment: uses shorthand field as label [C1], [J1], [P1]
+% Bibliography list environment: auto-sequential label [1], [2], ...
 \setlength{\bibitemsep}{0pt}
 \setlength{\bibparsep}{0pt}
 \defbibenvironment{bibliography}
@@ -31,7 +31,7 @@
     \emergencystretch=1em%
   }}
   {\endlist}
-  {\item[\mkbibbrackets{\printfield{shorthand}}]}
+  {\item[\mkbibbrackets{\printfield{labelnumber}}]}
 
 % Author name format: "Given Family" order, highlight Jaeho Lee
 \DeclareNameFormat{author}{%
@@ -49,12 +49,17 @@
   }{}%
 }
 
+% Link button helper
+\newcommand{\publink}[1]{\addspace{\footnotesize\underline{\href{#1}{\textcolor{darkgray}{[link]}}}}}
+
+
 % Custom driver: inproceedings
 \DeclareBibliographyDriver{inproceedings}{%
   \printnames{author},\addspace
   \mkbibitalic{\printfield{title}},\addspace
   \mkbibbold{\printfield{booktitle}},\addspace
   \printfield{year}.%
+  \iffieldundef{url}{}{\publink{\thefield{url}}}%
   \finentry
 }
 
@@ -65,13 +70,14 @@
   \mkbibbold{\printfield{journaltitle}},\addspace
   \printfield{year}.%
   \iffieldundef{note}{}{ (\printfield{note})}%
+  \iffieldundef{url}{}{\publink{\thefield{url}}}%
   \finentry
 }
 
-% Inline citation using shorthand field: \refcite{C2,C3,J3} → [C2, C3, J3]
+% Inline citation using auto labelnumber: \refcite{C2,C3,J3} → [2, 3, 4]
 \DeclareCiteCommand{\refcite}[\mkbibbrackets]
   {\usebibmacro{prenote}}
-  {\printfield{shorthand}}
+  {\bibhyperref{\printfield{labelnumber}}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
